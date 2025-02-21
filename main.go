@@ -1,19 +1,23 @@
 package main
 
-import "fmt"
-
-type Animal interface{
+type Animal interface {
 	hasLegs() string
 	sound() string
 }
 
+type Dog struct {
+	name  string
+	legs  int
+	sound string
+}
 type person struct {
-	name string
-	age int
+	name  string
+	legs  int
+	sound string
 }
 
-func main(){
-	firstPerson := person{name: "john", age: 30}
-	fmt.Println(firstPerson.name)
-	fmt.Println(firstPerson.age)
+func main() {
+	firstDog := Dog{name: "Tommy", legs: 4, sound: "woof-woof"}
+	firstPerson := person{name: "Anukul", legs: 2, sound: "language"}
+
 }
