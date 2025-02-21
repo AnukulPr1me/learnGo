@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-type newThing interface{
-	helloworld()
-	newWorld()
+type Animal interface{
+	hasLegs() string
+	sound() string
 }
 
 type person struct {
