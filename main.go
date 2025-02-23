@@ -1,23 +1,19 @@
 package main
 
-type Animal interface {
-	hasLegs() string
-	sound() string
-}
-
-type Dog struct {
-	name  string
-	legs  int
-	sound string
-}
-type person struct {
-	name  string
-	legs  int
-	sound string
-}
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
-	firstDog := Dog{name: "Tommy", legs: 4, sound: "woof-woof"}
-	firstPerson := person{name: "Anukul", legs: 2, sound: "language"}
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		n, err := fmt.Fprintf(w, "hello world!")
 
+		if err != nil {
+			fmt.Println(err)
+		}
+		fmt.Println(fmt.Sprintf("Number of bytes writen: %d", n))
+	})
+
+	_ = http.ListenAndServe(":8080", nil)
 }
